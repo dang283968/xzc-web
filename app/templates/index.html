@@ -1,0 +1,238 @@
+<!-- app/templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+        <h1>夏之窗香水</h1>
+        <p>邂逅夏日的浪漫气息</p>
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary">探索系列</a>
+            <a href="#story" class="btn btn-outline">品牌故事</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>向下滚动</span>
+        <i class="scroll-arrow"></i>
+    </div>
+</section>
+
+<section id="story" class="story">
+    <div class="story-content" data-aos="fade-right" data-aos-delay="200">
+        <h2>品牌故事</h2>
+        <p>夏之窗，源自对夏日美好时光的永恒追寻。每一瓶香水都凝聚着盛夏的温柔与热情，让您在芬芳中感受夏日的诗意与浪漫。</p>
+        <div class="story-quote">
+            <blockquote>"香水是无形的优雅，是穿着的配饰，是没有离开却留下印记的秘密。"</blockquote>
+            <cite>— 夏之窗创始人</cite>
+        </div>
+        <div class="story-features">
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <div class="feature-text">天然原料</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧪</div>
+                <div class="feature-text">精湛工艺</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌎</div>
+                <div class="feature-text">环保理念</div>
+            </div>
+        </div>
+    </div>
+    <div class="story-image" data-aos="fade-left" data-aos-delay="400">
+        <div class="image-frame">
+            <img src="{{ url_for('static', filename='images/story.jpg') }}" alt="品牌故事">
+        </div>
+    </div>
+</section>
+
+<section id="products" class="products">
+    <div class="section-header" data-aos="fade-up">
+        <h2>香水系列</h2>
+        <p class="section-subheading">精致匠心，优雅馥郁</p>
+    </div>
+    
+    <div class="product-grid">
+        {% for perfume in perfumes %}
+        <div class="product-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="product-image">
+                <img src="{{ perfume.image }}" alt="{{ perfume.name }}">
+                <div class="product-overlay">
+                    <button class="product-preview-btn">查看详情</button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>{{ perfume.name }}</h3>
+                <p>{{ perfume.description }}</p>
+                <div class="fragrance-notes">
+                    <span class="note-label">前调：</span><span class="note-value">{{ perfume.top_notes }}</span>
+                    <span class="note-label">中调：</span><span class="note-value">{{ perfume.middle_notes }}</span>
+                    <span class="note-label">后调：</span><span class="note-value">{{ perfume.base_notes }}</span>
+                </div>
+                <div class="product-action">
+                    <div class="product-price">¥899</div>
+                    <button class="add-to-cart-btn">加入购物车</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="products-cta" data-aos="zoom-in">
+        <h3>发现您的专属气味</h3>
+        <p>夏之窗提供多种香调选择，总有一款适合您</p>
+        <a href="#" class="btn btn-primary">查看全部系列</a>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="section-header" data-aos="fade-up">
+        <h2>客户评价</h2>
+        <p class="section-subheading">来自真实用户的体验分享</p>
+    </div>
+    
+    <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-slide active">
+            <div class="testimonial-content">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"夏日晨露香水成为了我日常的必备单品，清新的香气让我精神焕发，持久度也很惊人。"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <div class="author-name">李梦</div>
+                        <div class="author-title">时尚博主</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-slide">
+            <div class="testimonial-content">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"海边微风的香调让我仿佛置身于海滨度假，每次使用都能收获许多赞美。"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <div class="author-name">王晓</div>
+                        <div class="author-title">资深香水爱好者</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-slide">
+            <div class="testimonial-content">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"花园漫步的香气如其名，仿佛带我走入了一座盛开的花园，优雅且不失个性。"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <div class="author-name">张雨</div>
+                        <div class="author-title">造型师</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-prev">❮</button>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="slider-next">❯</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="contact-content" data-aos="zoom-in">
+        <h2>联系我们</h2>
+        <p class="contact-subtitle">如有任何问题，请随时与我们联系</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>地址</h4>
+                        <p>上海市静安区南京西路1266号</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4>电话</h4>
+                        <p>400-888-8888</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h4>邮箱</h4>
+                        <p>contact@summerwindow.com</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">微博</a>
+                    <a href="#" class="social-link">微信</a>
+                    <a href="#" class="social-link">小红书</a>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="您的姓名" required>
+                <input type="email" placeholder="电子邮箱" required>
+                <select>
+                    <option value="" disabled selected>咨询主题</option>
+                    <option value="product">产品咨询</option>
+                    <option value="order">订单问题</option>
+                    <option value="cooperation">商务合作</option>
+                    <option value="other">其他问题</option>
+                </select>
+                <textarea placeholder="留言内容" required></textarea>
+                <div class="form-footer">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">我已阅读并同意隐私政策</span>
+                    </label>
+                    <button type="submit">发送消息</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class="newsletter">
+    <div class="newsletter-content">
+        <h3>订阅我们的新闻通讯</h3>
+        <p>获取最新产品信息和专属优惠</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="您的电子邮箱地址" required>
+            <button type="submit">订阅</button>
+        </form>
+    </div>
+</div>
+
+<!-- 产品预览模态框 -->
+<div class="product-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img src="" alt="产品预览">
+            </div>
+            <div class="modal-info">
+                <h3 class="modal-title"></h3>
+                <p class="modal-description"></p>
+                <div class="modal-notes"></div>
+                <div class="modal-actions">
+                    <div class="modal-price"></div>
+                    <button class="modal-cart-btn">加入购物车</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

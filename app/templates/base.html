@@ -1,0 +1,74 @@
+<!-- app/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏之窗香水 - 优雅芬芳的艺术</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="夏之窗香水，邂逅夏日的浪漫气息，每一瓶都凝聚着盛夏的温柔与热情">
+    <meta name="keywords" content="香水,夏之窗,高端香水,女士香水,男士香水,礼品">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">夏之窗</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#story">品牌故事</a></li>
+                <li><a href="#products">产品系列</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-shopping-bag"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>夏之窗香水</h3>
+                <p>优雅的芬芳，独特的魅力</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">配送政策</a></li>
+                    <li><a href="#">退换政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>联系我们</h3>
+                <p><i class="fas fa-envelope"></i> contact@summerwindow.com</p>
+                <p><i class="fas fa-phone"></i> 400-888-8888</p>
+                <p><i class="fas fa-map-marker-alt"></i> 上海市静安区南京西路1266号</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 夏之窗香水 版权所有</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
